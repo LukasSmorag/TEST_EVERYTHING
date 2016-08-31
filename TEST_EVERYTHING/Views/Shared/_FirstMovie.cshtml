@@ -1,0 +1,18 @@
+﻿@model TEST_EVERYTHING.Models.Movie
+@if (Request.IsAuthenticated)
+{
+    <dl class="FirstMovie">
+        <dt>
+            Name
+        </dt>
+        <dd>
+            @Model.Name
+        </dd>
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Model.Description
+        </dd>
+    </dl>
+}

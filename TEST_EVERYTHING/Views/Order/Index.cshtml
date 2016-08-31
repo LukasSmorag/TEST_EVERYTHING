@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TEST_EVERYTHING.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Orders</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Order Id</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <!--normal display-->
+            @Html.DisplayFor(ModelItem => item.OrderId)
+            <!--display as link-->
+            @Html.ActionLink(item.OrderId.ToString(), "OrderDetailed", "Order", new { id = item.OrderId }, null)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "OrderDetailed", "Order", new { id = item.OrderId }, null) 
+        </td>
+    </tr>
+}
+
+</table>

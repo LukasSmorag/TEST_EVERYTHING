@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TEST_EVERYTHING.Models.Item>
+
+@{
+    ViewBag.Title = "OrderNow";
+}
+
+<h2>Cart</h2>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Quantity</th>
+        </tr>
+            @foreach (var item in (List<TEST_EVERYTHING.Models.Item>)Session["cart"])
+            {
+                <tr>
+                    <td>@item.Movie.Id</td>
+                    <td>@item.Movie.Name</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+
+    </table>
+    @Html.ActionLink("Continue Shopping", "Index", "Movie")
+<br /><br />
+

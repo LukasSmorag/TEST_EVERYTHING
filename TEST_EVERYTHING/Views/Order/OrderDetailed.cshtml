@@ -1,0 +1,46 @@
+﻿@model TEST_EVERYTHING.ViewModels.OrderLineItemViewModel
+
+@{
+    ViewBag.Title = "OrderDetailed";
+}
+
+<div>
+    <h4>Order Detailed</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.OrderId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Order.OrderId)
+        </dd>
+    </dl>
+    <h4>Line Items</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.Orders.First().OrderLineId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.Orders.First().Movie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.Orders.First().Quantity)
+            </th>
+        </tr>
+        @foreach (var item in Model.LineItems)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderLineId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Movie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+        }
+        </table>
+</div>
